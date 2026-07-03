@@ -1,6 +1,6 @@
-import Reservation from "../models/Reservation"
-import Table from "../models/Table";
-import { notifyAdmins } from "../utils/socket";
+import Reservation from "../models/Reservation.js"
+import Table from "../models/Table.js";
+import { notifyAdmins } from "../utils/socket.js";
 
 
 

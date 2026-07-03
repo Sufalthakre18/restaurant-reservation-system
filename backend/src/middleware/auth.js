@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import User from "../models/User";
+import User from "../models/User.js";
 
 // Verifies the JWT and attaches the authenticated user to req.user
 const protect = async (req, res, next) => {

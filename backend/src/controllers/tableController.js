@@ -1,4 +1,4 @@
-import Table from "../models/Table";
+import Table from "../models/Table.js";
 
 // @route  GET /api/tables
 // @access Private (any authenticated user - customers need this to pick a table)

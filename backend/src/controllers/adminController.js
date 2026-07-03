@@ -1,7 +1,7 @@
-import Reservation from '../models/Reservation';
-import User from '../models/User';
-import { notifyUser } from '../utils/socket';
-import { isTableAvailable } from './reservationController (1)';
+import Reservation from '../models/Reservation.js';
+import User from '../models/User.js';
+import { notifyUser } from '../utils/socket.js';
+import { isTableAvailable } from './reservationController.js';
 
 
 // @route  GET /api/admin/reservations

@@ -1,24 +1,23 @@
-import dotenv from "dotenv";
-import express from "express";
-import cors from "cors";
+import "./src/config/env.js";;
+import http from "http";
+import app from "./src/app.js";
 import connectDB from "./src/config/db.js";
+import { initSocket } from "./src/utils/socket.js";
 
-dotenv.config();
 
-const app = express();
 
-connectDB()
 
-app.use(cors());
-app.use(express.json());
+const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.status(200).json({ success: true, message: 'API is running' });
-});
+const start = async () => {
+  await connectDB();
 
-const PORT=5000;
+  const server = http.createServer(app);
+  initSocket(server); // attaches Socket.io to the same HTTP server real-time updates
 
-app.listen(PORT, ()=>{
-    console.log(`Server is running at http://localhost:${PORT}`);
-    
-});
+  server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+start();

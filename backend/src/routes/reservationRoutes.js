@@ -1,6 +1,6 @@
 import express from "express";
-import { cancelMyReservation, checkAvailability, createReservation, getMyReservations } from "../controllers/reservationController (1)";
-import { protect } from "../middleware/auth";
+import { cancelMyReservation, checkAvailability, createReservation, getMyReservations } from "../controllers/reservationController.js";
+import { authorize, protect } from "../middleware/auth.js";
 const router = express.Router();
 
 router.use(protect, authorize('customer'));

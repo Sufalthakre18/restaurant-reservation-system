@@ -1,7 +1,7 @@
 import crypto from "crypto";
 import Razorpay from "razorpay";
-import Reservation from "../models/Reservation";
-import { notifyAdmins } from "../utils/socket";
+import Reservation from "../models/Reservation.js";
+import { notifyAdmins } from "../utils/socket.js";
 
 
 const razorpay = new Razorpay({

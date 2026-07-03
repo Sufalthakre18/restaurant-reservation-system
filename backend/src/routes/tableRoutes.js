@@ -1,6 +1,6 @@
 import express from "express";
-import { createTable, deleteTable, getTables, updateTable } from "../controllers/tableController (1)";
-import { authorize, protect } from "../middleware/auth";
+import { createTable, deleteTable, getTables, updateTable } from "../controllers/tableController.js";
+import { authorize, protect } from "../middleware/auth.js";
 
 const router = express.Router();
 

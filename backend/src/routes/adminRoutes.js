@@ -1,6 +1,6 @@
 import express from "express";
-import { authorize, protect } from "../middleware/auth";
-import { cancelReservation, createAdmin, getAllReservations, updateReservation } from "../controllers/adminController (1)";
+import { authorize, protect } from "../middleware/auth.js";
+import { cancelReservation, createAdmin, getAllReservations, updateReservation } from "../controllers/adminController.js";
 
 const router = express.Router();
 

@@ -1,6 +1,6 @@
 import express from "express";
-import { authorize, protect } from "../middleware/auth";
-import { createOrder, verifyPayment } from "../controllers/paymentController (1)";
+import { authorize, protect } from "../middleware/auth.js";
+import { createOrder, verifyPayment } from "../controllers/paymentController.js";
 const router = express.Router();
 
 router.use(protect, authorize('customer'));
