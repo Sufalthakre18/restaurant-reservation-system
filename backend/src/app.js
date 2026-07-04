@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 
-// FIX: Add .js to all relative imports
 import authRoutes from "./routes/authRoutes.js";
 import tableRoutes from "./routes/tableRoutes.js";
 import reservationRoutes from "./routes/reservationRoutes.js";
