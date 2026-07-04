@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { UtensilsCrossed } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Field from '../components/Field';
@@ -7,7 +7,6 @@ import Button from '../components/Button';
 
 export default function RegisterPage() {
   const { register, user } = useAuth();
-  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,7 +14,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  if (user) navigate(user.role === 'admin' ? '/admin' : '/book', { replace: true });
+  if (user) return <Navigate to={user.role === 'admin' ? '/admin' : '/book'} replace />;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

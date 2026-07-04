@@ -1,1 +1,83 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------- */
+/* Design tokens - a warm "osteria" palette, deliberately not the default */
+/* cream+terracotta or dark+neon combos. Wine, sage and gold read as      */
+/* dining/hospitality without leaning on cliché red-checkered-tablecloth. */
+/* ---------------------------------------------------------------------- */
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-paper: #faf6ef;   /* app background - warm ivory */
+  --color-surface: #ffffff; /* cards */
+  --color-ink: #241c1a;     /* primary text */
+  --color-muted: #7a6f65;   /* secondary text */
+  --color-line: #e6ddd0;    /* borders/dividers */
+
+  --color-wine: #6f2a35;      /* primary brand + buttons */
+  --color-wine-dark: #57202a; /* primary hover */
+  --color-wine-light: #f3e6e8;
+
+  --color-sage: #3f6b4a;       /* success / available / secondary actions */
+  --color-sage-light: #e7efe7;
+
+  --color-gold: #c98a2c;       /* pending / accent */
+  --color-gold-light: #fbf0dd;
+
+  --color-rust: #b3382c;       /* danger / cancelled */
+  --color-rust-light: #fbeae7;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  /* Visible keyboard focus everywhere - no focus rings removed */
+  :focus-visible {
+    outline: 2px solid var(--color-wine);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Subtle entrance used once per page, not per element - keeps motion calm */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.35s ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+      animation: none;
+    }
+  }
+}
